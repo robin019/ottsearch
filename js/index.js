@@ -1,8 +1,8 @@
 $(document).ready(function() {
     $("#search-button").click(function () {
-       // let searchText = $("#search-text").val();
+        let searchText = $("#search-text").val();
         $.ajax({
-            url: "http://localhost:8080/search", success:function(result){
+            url: "https://asia-east2-anime-search-282715.cloudfunctions.net/search?query=" + searchText, success:function(result){
                 hideModel();
                 clearResultArea();
                 let json = JSON.parse(result);
@@ -12,9 +12,9 @@ $(document).ready(function() {
                     for (let i=0; i<json.length; i++) {
                         count += json[i].result.length
                     }
-                    $(`<p style="margin-left: 5px; color: #333; font-size: 14px"> ${count} 筆搜尋結果</p>`).appendTo("#result-area")
+                    $(`<p style="margin-left: 5px; color: #333; font-size: 15px"> ${count} 筆搜尋結果</p>`).appendTo("#result-area")
                 } else {
-                    $(`<p style="margin-left: 2px; color: #333; font-size: 14px">查無搜尋結果</p>`).appendTo("#result-area")
+                    $(`<p style="margin-left: 2px; color: #333; font-size: 15px">查無搜尋結果</p>`).appendTo("#result-area")
                 }
                 insertOtt(json)
             }
@@ -50,7 +50,7 @@ function appendPerOtt(index, ottName, result) {
     }
 
 
-    $(` <div class="card">
+    $(`<div class="card">
       <div class="card-header" id="${cardHeaderId}">
         <h2 class="mb-0">
           <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="${"#" + collapseId}" aria-expanded="false" aria-controls="${collapseId})">
