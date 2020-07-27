@@ -2,7 +2,7 @@ $(document).ready(function() {
     $("#search-button").click(function () {
         let searchText = $("#search-text").val();
         $.ajax({
-            url: "https://asia-east2-anime-search-282715.cloudfunctions.net/search?query=" + searchText, success:function(result){
+            url: "https://ott-search-ngmg5uzcla-de.a.run.app?query=" + searchText, success:function(result){
                 hideModel();
                 clearResultArea();
                 let json = JSON.parse(result);
