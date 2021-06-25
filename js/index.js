@@ -5,7 +5,7 @@ $(document).ready(function() {
             url: "https://url-detect.robin019.xyz/search?query=" + searchText, success:function(result){
                 hideModel();
                 clearResultArea();
-                let json = JSON.parse(result);
+                let json = JSON.parse(result.replace('\\&', ''));
 
                 if (json.length !== 0 ){
                     let count = 0;
