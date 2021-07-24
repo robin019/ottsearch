@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $("#search-button").click(function () {
+    $("#search-form").submit(function (event) {
+        event.preventDefault();
+
         let searchText = $("#search-text").val();
         $.ajax({
             url: "https://url-detect.robin019.xyz/search?query=" + searchText, success:function(result){
