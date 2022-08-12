@@ -21,18 +21,43 @@
       <div class="form-group mb-2 mr-3">
         <input type="text" class="form-control" id="search-text" placeholder="輸入標題">
       </div>
-      <button type="submit"class="btn btn-primary mb-2" data-toggle="modal" data-target="#search-loading">查詢</button>
+      <div>
+        <button type="submit" class="btn btn-primary mb-2 mr-2" data-toggle="modal" data-target="#search-loading">查詢</button>
+        <button type="button" id="search-history" class="btn btn-primary mb-2" data-toggle="modal" data-target="#history-model">歷史紀錄</button>
+      </div>
     </form>
   </div>
 
   <!-- Modal -->
   <div class="modal fade" id="search-loading" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content" style="width: 80px;margin-left: 40%;margin-bottom: 70%">
-        <div class="text-center">
+      <div class="modal-content" style="width: 80px; margin-left: 40%;margin-bottom: 70%">
+        <div class="text-center" style="padding: 0.5rem 0;">
           <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- History Modal -->
+  <div class="modal fade" id="history-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="text-center">
+          <div class="m-3">
+            <div>
+              <div class="mb-3" style="display: flex; justify-content: space-between;">
+                <button type="button" id="history-clear" class="btn btn-danger">全部清除</button>
+                <button type="button" id="history-close" class="btn close" aria-label="Close" style="font-size: 2em;">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <ul class="list-group" id="history-area" style="max-height: 72vh; overflow-y: auto;">
+              </ul>
+            </div> 
+          </div> 
         </div>
       </div>
     </div>
@@ -82,11 +107,19 @@
     <ol class="pl-3">
       <li class="mb-1">搜尋僅供參考，結果可能遺漏，平台搜尋可能因網站改版而失效。</li>
       <li class="mb-1">許願池(希望支援的平台)、Bug回報 : liu8613789@gmail.com</li>
+      <li class="mb-1">歷史紀錄最多為 100 筆。</li>
     </ol>
   </div>
 
 
 </div>
-
+<style>
+  #history-area li:hover {
+    background-color: #f0f0f0;
+  }
+  .history-btn:hover {
+    background-color: #c0c0c0;
+  }
+</style>
 </body>
 </html>
