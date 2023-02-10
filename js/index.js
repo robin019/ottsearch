@@ -125,7 +125,7 @@ function appendPerOtt(index, ottName, result) {
 
     let listHtml = "";
     for (let i = 0; i<result.length; i++) {
-        listHtml += `<a href="${result[i].href}" target="_blank" class="list-group-item">${result[i].title}</a>`
+        listHtml += `<a href="${result[i].href}" target="_blank" class="list-group-item">${showPayment(result[i].payment)}${result[i].title}</a>`
     }
 
 
@@ -146,4 +146,21 @@ function appendPerOtt(index, ottName, result) {
         </div>
       </div>
     </div>`).appendTo("#result-area")
+}
+
+function showPayment(payments) {
+    // <span style="margin-right: 5px" class="badge badge-pill badge-info">FREE</span>
+    let show = ''
+    for (let i=0; i<payments.length; i++) {
+        if (payments[i] === 1){
+            show += '<span style="margin-right: 5px" class="badge badge-pill badge-success">免費</span>'
+        }
+        if (payments[i] === 2){
+            show += '<span style="margin-right: 5px" class="badge badge-pill badge-primary">訂閱</span>'
+        }
+        if (payments[i] === 3){
+            show += '<span style="margin-right: 5px; background-color: #E09016!important;" class="badge badge-pill badge-success">單次</span>'
+        }
+    }
+    return show
 }
