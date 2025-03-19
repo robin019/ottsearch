@@ -7,7 +7,7 @@ $(document).ready(function() {
         let searchText = $("#search-text").val();
         if (searchText) addHistory(searchText);
         $.ajax({
-            url: "https://url-detect.robin019.xyz/search?query=" + searchText, success:function(result){
+            url: "https://api.ott-search.com/search?query=" + searchText, success:function(result){
                 hideModel();
                 clearResultArea();
                 let json = JSON.parse(result.replace('\\&', ''));
