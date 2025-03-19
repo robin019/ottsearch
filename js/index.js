@@ -45,13 +45,13 @@ $(document).ready(function() {
             });
             $(".history-delete").click(function (event) {
                 const $list = $(this).parent(); 
-                if (removeHistory($list.attr("data"))) $(`<li class="pl-3 list-group-item history-item" style="cursor: pointer;">*暫無搜尋紀錄*</li>`).appendTo("#history-area");
+                if (removeHistory($list.attr("data"))) $(`<li class="pl-3 list-group-item history-item" style="cursor: pointer;">*無搜尋紀錄*</li>`).appendTo("#history-area");
                 $list.remove();
                 event.stopPropagation();
             });
         }
         else {
-            $(`<li class="pl-3 list-group-item history-item" style="cursor: pointer;">*暫無搜尋紀錄*</li>`).appendTo("#history-area");
+            $(`<li class="pl-3 list-group-item history-item" style="cursor: pointer;">*無搜尋紀錄*</li>`).appendTo("#history-area");
         }
     });
 
